@@ -18,7 +18,7 @@ def normalize_product_name(name: str) -> str:
     return result
 
 def get_storage_str_representation(storage: list[Product]) -> str:
-    rows = [TABLE_HEADERS]
+    rows: list[tuple[str, ...]] = [tuple(TABLE_HEADERS)] #тут так же анотировал, чтобы вс код не ругался
     for product in storage:
         product_id, name, price, quantity = product
         row = (str(product_id), name, str(price), str(quantity))
